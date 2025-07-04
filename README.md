@@ -1,5 +1,5 @@
-Deploying an Application on AWS EC2
-Prerequisites
+# Deploying an Application on AWS EC2
+  #Prerequisites
 Before deploying your application on AWS EC2, ensure you have:
 
 An AWS account
@@ -24,20 +24,28 @@ sudo yum update -y   # Amazon Linux
 sudo apt update -y   # Ubuntu/Debian
 
 # Install required packages (example for a web app)
-sudo yum install -y git nginx nodejs
-Step 4: Deploy Your Application
-Clone your application repository:
+ sudo yum install -y git nginx nodejs
+ 
+ Step 4: Deploy Your Application
+ 
+ Clone your application repository:
+ 
 git clone https://github.com/your-repo/app.git
-cd app
+ cd app
+ 
 Install dependencies:
 npm install  # For Node.js apps
+
 Start the application:
 node server.js &
+
 Step 5: Configure Firewall and Security Group
+
 Ensure your EC2 instance allows inbound traffic on required ports:
 
 sudo firewall-cmd --add-service=http --permanent
 sudo firewall-cmd --reload
+
 Modify security group in AWS to allow necessary ports.
 
 Step 6: Set Up a Reverse Proxy (Optional)
@@ -65,5 +73,6 @@ npm install -g pm2
 pm2 start server.js
 pm2 startup
 pm2 save
+
 Step 8: Access Your Application
 Visit http://your-ec2-public-ip in a browser.
