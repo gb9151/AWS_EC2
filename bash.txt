@@ -1,0 +1,40 @@
+Deploying an Application on AWS EC2
+Prerequisites
+Before deploying your application on AWS EC2, ensure you have:
+------MANUALY----
+An AWS account
+AWS CLI installed and configured (aws configure)
+SSH key pair (.pem file) for EC2 access
+A pre-built application ready for deployment
+Step 1: Launch an EC2 Instance
+Log in to AWS Management Console.
+Navigate to EC2 > Instances.
+Click Launch Instance.
+Choose an Amazon Machine Image (AMI), e.g., Amazon Linux 2.
+Select an instance type (e.g., t2.micro for free-tier eligibility).
+Configure security group:
+Allow SSH (port 22) for access.
+Allow necessary ports (e.g., 80, 443 for web apps).
+Add a key pair for SSH access.
+Launch the instance.
+Step 2: Connect to the EC2 Instance
+ssh -i your-key.pem ec2-user@your-ec2-public-ip
+                     OR 
+-------TERRAFORM-----------
+How to use:
+
+Save this file as main.tf.
+
+Run:
+
+text
+terraform init
+terraform apply
+After apply, Terraform will output the public IP and the URL to access in your browser.
+For example:
+http://<public_ip>:8080
+
+When you visit that URL in your browser, you will see:
+
+Hello, World
+
